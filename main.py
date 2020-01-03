@@ -26,11 +26,10 @@ def sendTweet(browser):
     posts = [post.text for post in browser.find_elements_by_class_name("post")]
     a = [post.find_element_by_tag_name("a").get_attribute("href") for post in browser.find_elements_by_class_name("post")]
     
-    for i in range(len(posts)):
-        browser.get("https://fedoramagazine.org/")
-        link = a[i]
+    browser.get("https://fedoramagazine.org/")
+    link = a[0]
         
-        Tweet(posts[i] + "\n" + link)
+    Tweet(posts[0] + "\n" + link)
 
 
 # Logs in the browser
